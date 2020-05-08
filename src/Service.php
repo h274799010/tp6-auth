@@ -5,7 +5,7 @@
  * Date: 2020/3/19 16:17
  */
 
-namespace hs\auth;
+namespace hsen\auth;
 
 
 class Service extends \think\Service

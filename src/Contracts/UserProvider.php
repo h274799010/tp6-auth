@@ -5,12 +5,12 @@
  * Time: 2019/8/16 10:55
  */
 
-namespace hs\auth\Contracts;
+namespace hsen\auth\Contracts;
 
 /**
  * Interface UserProvider
  * 根据相应的获取用户信息配置来获取去用户并验证
- * @package hs\auth\contracts
+ * @package hsen\auth\contracts
  * @author HuangSen
  */
 interface UserProvider

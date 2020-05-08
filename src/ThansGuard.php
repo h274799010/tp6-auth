@@ -5,11 +5,11 @@
  * Time: 2019/8/16 11:08
  */
 
-namespace hs\auth;
+namespace hsen\auth;
 
 
-use hs\auth\Contracts\Guard;
-use hs\auth\Contracts\UserProvider;
+use hsen\auth\Contracts\Guard;
+use hsen\auth\Contracts\UserProvider;
 use thans\jwt\exception\JWTException;
 use thans\jwt\exception\TokenBlacklistException;
 use thans\jwt\exception\TokenExpiredException;
@@ -21,7 +21,7 @@ use thans\jwt\JWTAuth;
  * 新的jwt
  * @author HuangSen
  * Time 2019/8/24 2:26
- * @package hs\auth
+ * @package hsen\auth
  */
 class ThansGuard implements Guard
 {

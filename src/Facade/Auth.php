@@ -6,9 +6,9 @@
  */
 declare (strict_types=1);
 
-namespace hs\auth\Facade;
+namespace hsen\auth\Facade;
 
-use hs\auth\AuthManager;
+use hsen\auth\AuthManager;
 use think\Facade;
 
 /**

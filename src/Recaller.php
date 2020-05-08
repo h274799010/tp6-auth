@@ -5,7 +5,7 @@
  * Time: 2019/10/8 17:20
  */
 
-namespace hs\auth;
+namespace hsen\auth;
 
 
 use think\helper\Str;

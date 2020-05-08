@@ -5,12 +5,12 @@
  * Time: 2019/10/8 13:28
  */
 
-namespace hs\auth;
+namespace hsen\auth;
 
 
-use hs\auth\Contracts\AuthIdCard;
-use hs\auth\Contracts\StatefulGuard;
-use hs\auth\Contracts\UserProvider;
+use hsen\auth\Contracts\AuthIdCard;
+use hsen\auth\Contracts\StatefulGuard;
+use hsen\auth\Contracts\UserProvider;
 use app\Request;
 use think\Session;
 use think\helper\Str;

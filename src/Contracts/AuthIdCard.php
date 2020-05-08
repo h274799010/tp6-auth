@@ -5,7 +5,7 @@
  * Time: 2019/8/15 18:53
  */
 
-namespace hs\auth\Contracts;
+namespace hsen\auth\Contracts;
 
 /**
  * Interface AuthIdCard

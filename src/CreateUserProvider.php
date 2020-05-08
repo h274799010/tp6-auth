@@ -5,14 +5,14 @@
  * Time: 2019/8/16 11:22
  */
 
-namespace hs\auth;
+namespace hsen\auth;
 
 use think\exception\InvalidArgumentException;
 
 /**
  * Trait CreatesUserProviders
  * 创建用户获取的提供者的方法集合
- * @package hs\auth
+ * @package hsen\auth
  * @author HuangSen
  * Time: 2019/8/16 11:23
  */

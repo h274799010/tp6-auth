@@ -5,7 +5,7 @@
  * Time: 2019/8/15 18:48
  */
 
-namespace hs\auth\Contracts;
+namespace hsen\auth\Contracts;
 
 /**
  * Interface Guard

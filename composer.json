@@ -15,13 +15,13 @@
     ],
     "autoload": {
         "psr-4": {
-            "hs\\auth\\": "src/"
+            "hsen\\auth\\": "src/"
         }
     },
     "extra": {
         "think": {
             "services": [
-                "hs\\auth\\Service"
+                "hsen\\auth\\Service"
             ],
             "config": {
                 "auth": "config/auth.php"

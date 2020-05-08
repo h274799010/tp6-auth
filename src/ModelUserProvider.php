@@ -5,11 +5,11 @@
  * Time: 2019/8/16 11:34
  */
 
-namespace hs\auth;
+namespace hsen\auth;
 
 
-use hs\auth\Contracts\AuthIdCard;
-use hs\auth\Contracts\UserProvider;
+use hsen\auth\Contracts\AuthIdCard;
+use hsen\auth\Contracts\UserProvider;
 use think\contract\Arrayable;
 
 class ModelUserProvider implements UserProvider

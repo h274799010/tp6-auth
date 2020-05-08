@@ -6,7 +6,7 @@
  */
 declare(strict_types=1);
 
-namespace hs\auth\Contracts;
+namespace hsen\auth\Contracts;
 
 
 interface StatefulGuard extends Guard

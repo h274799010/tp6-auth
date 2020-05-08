@@ -6,9 +6,9 @@ declare(strict_types=1);
  * Time: 2019/8/15 16:21
  */
 
-namespace hs\auth;
+namespace hsen\auth;
 
-use hs\auth\Contracts\Factory as AuthFactory;
+use hsen\auth\Contracts\Factory as AuthFactory;
 use Closure;
 use think\App;
 use think\exception\InvalidArgumentException;

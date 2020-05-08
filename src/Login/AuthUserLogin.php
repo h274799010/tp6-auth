@@ -5,17 +5,17 @@
  * Time: 2019/9/18 18:46
  */
 
-namespace hs\auth\Login;
+namespace hsen\auth\Login;
 
 
-use hs\auth\Exceptions\AuthenticationException;
+use hsen\auth\Exceptions\AuthenticationException;
 use app\Request;
 use think\response\View;
 
 /**
  * session 登陆方法
  * Trait AuthUserLogin
- * @package hs\auth\login
+ * @package hsen\auth\login
  * @author HuangSen
  * Time: 2019/10/26 15:37
  */

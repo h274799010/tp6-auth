@@ -5,17 +5,17 @@
  * Time: 2019/10/24 11:47
  */
 
-namespace hs\auth\Middleware;
+namespace hsen\auth\Middleware;
 
 use Closure;
-use hs\auth\Facade\Auth;
+use hsen\auth\Facade\Auth;
 
 /**
  * 登陆前判断 判断已经登陆了以后就直接跳转到走
  * Class RedirectIfAuthenticated
  * @author HuangSen
  * Time 2019/10/24 12:05
- * @package hs\auth\middleware
+ * @package hsen\auth\middleware
  */
 class RedirectIfAuthenticated
 {

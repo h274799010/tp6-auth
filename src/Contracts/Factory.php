@@ -5,7 +5,7 @@
  * Time: 2019/8/15 16:08
  */
 
-namespace hs\auth\Contracts;
+namespace hsen\auth\Contracts;
 
 
 /**

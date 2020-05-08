@@ -6,17 +6,17 @@
  */
 declare(strict_types=1);
 
-namespace hs\auth\Middleware;
+namespace hsen\auth\Middleware;
 
-use hs\auth\AuthManager as Auth;
-use hs\auth\Exceptions\AuthenticationException;
+use hsen\auth\AuthManager as Auth;
+use hsen\auth\Exceptions\AuthenticationException;
 
 /**
  * Class Authenticate
  * 判断当前用户是否已经登陆了
  * @author HuangSen
  * Time 2019/8/25 19:37
- * @package hs\auth\middleware
+ * @package hsen\auth\middleware
  */
 class Authenticate extends AuthBaseMiddleware
 {

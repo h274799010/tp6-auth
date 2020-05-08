@@ -5,12 +5,12 @@
  * Time: 2019/8/16 14:00
  */
 
-namespace hs\auth;
+namespace hsen\auth;
 
 
-use hs\auth\Contracts\AuthIdCard;
-use hs\auth\Contracts\UserProvider;
-use hs\auth\Exceptions\AuthenticationException;
+use hsen\auth\Contracts\AuthIdCard;
+use hsen\auth\Contracts\UserProvider;
+use hsen\auth\Exceptions\AuthenticationException;
 
 trait GuardHelpers
 {

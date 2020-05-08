@@ -5,7 +5,7 @@
  * Time: 2019/8/16 14:07
  */
 
-namespace hs\auth\Exceptions;
+namespace hsen\auth\Exceptions;
 
 
 use think\Exception;

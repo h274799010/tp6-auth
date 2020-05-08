@@ -5,7 +5,7 @@
  * Time: 2019/8/30 13:32
  */
 
-namespace hs\auth\Middleware;
+namespace hsen\auth\Middleware;
 
 
 use app\Request;

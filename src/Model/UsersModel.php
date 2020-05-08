@@ -5,10 +5,10 @@
  * Time: 2019/9/7 16:27
  */
 
-namespace hs\auth\Model;
+namespace hsen\auth\Model;
 
 
-use hs\auth\Contracts\AuthIdCard;
+use hsen\auth\Contracts\AuthIdCard;
 use think\Model;
 
 /**
@@ -16,7 +16,7 @@ use think\Model;
  * 用户模型
  * @author HuangSen
  * Time 2019/9/7 16:28
- * @package hs\auth\Model
+ * @package hsen\auth\Model
  */
 class UsersModel extends Model implements AuthIdCard
 {
