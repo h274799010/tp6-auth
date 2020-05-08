@@ -1,0 +1,32 @@
+{
+    "name": "hs/tp6-auth",
+    "description": "tp6 auth",
+    "type": "library",
+    "require": {
+        "php": ">=7.1.0",
+        "thans/tp-jwt-auth": "^1.0"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "huanglusen",
+            "email": "274799010@qq.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "hs\\auth\\": "src/"
+        }
+    },
+    "extra": {
+        "think": {
+            "services": [
+                "hs\\auth\\Service"
+            ],
+            "config": {
+                "auth": "config/auth.php"
+            }
+        }
+    },
+    "minimum-stability": "dev"
+}
