@@ -1,5 +1,5 @@
 {
-    "name": "hs/tp6-auth",
+    "name": "hsen/tp6-auth",
     "description": "tp6 auth",
     "type": "library",
     "require": {
