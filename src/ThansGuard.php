@@ -14,6 +14,7 @@ use thans\jwt\exception\JWTException;
 use thans\jwt\exception\TokenBlacklistException;
 use thans\jwt\exception\TokenExpiredException;
 use thans\jwt\JWTAuth;
+use think\Exception;
 
 
 /**
@@ -89,16 +90,16 @@ class ThansGuard implements Guard
     /**
      * 获取用户失败报错
      * @return mixed
-     * @throws BaseException
      * @throws JWTException
      * @throws TokenBlacklistException
+     * @throws Exception
      * @author HuangSen
      * Time 2019/8/18 23:41
      */
     public function userOrFail()
     {
         if (!$user = $this->user()) {
-            throw new BaseException('用户未定义！');
+            throw new Exception('用户未定义！');
         }
         return $user;
     }
@@ -138,7 +139,7 @@ class ThansGuard implements Guard
      * 刷新token
      * @return mixed
      * @throws JWTException
-     * @throws Exceptions\JwtException
+     * @throws Exception
      * @author: HuangSen
      * Date: 2019/12/17 14:24
      */
@@ -147,20 +148,20 @@ class ThansGuard implements Guard
         try {
             return $this->jwt->refresh();
         } catch (TokenExpiredException $exception) {
-            throw new \huangsen\auth\Exceptions\JwtException(['msg' => 'Token已经过期了:' . $exception->getMessage(), 'code' => ErrorCode::TOKEN_Expired]);
+            throw new Exception(['msg' => 'Token已经过期了:' . $exception->getMessage(), 'code' => 10000]);
         }
     }
 
     /**
      * 创建token
      * @param array $array
-     * @return array
+     * @return mixed
      * @author: HuangSen
      * Date: 2019/12/17 14:28
      */
-    public function getToken(array $array): array
+    public function getToken(array $array)
     {
-        return ['access_token' => $this->jwt->builder($array)];
+        return $this->jwt->builder($array);
     }
 
     /**
