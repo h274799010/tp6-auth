@@ -123,7 +123,7 @@ class AuthManager implements AuthFactory
     public function createJwtDriver($name, $config): ThansGuard
     {
         $provider = $this->createUserProvider($config['provider'] ?? null);
-        return new ThansGuard($this->app->make('thans\jwt\JWTAuth'), $provider);
+        return new ThansGuard($name, $this->app->make('thans\jwt\JWTAuth'), $provider);
     }
 
     /**
@@ -172,9 +172,9 @@ class AuthManager implements AuthFactory
      * @title   设置默认的驱动
      * @desc    方法描述
      * @param string|null $name
-     * @author  Administrator
      * @return mixed
      * DateTime: 2020/4/8 15:56
+     * @author  Administrator
      */
     public function shouldUse(string $name = null)
     {

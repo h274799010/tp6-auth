@@ -462,6 +462,18 @@ class SessionGuard implements StatefulGuard
     }
 
     /**
+     * @title  获取当前应用的名称
+     * @desc   方法描述
+     * @return string
+     * @author 27479
+     * DateTime: 2020/6/13 23:41
+     */
+    public function getGuardName()
+    {
+        return $this->name;
+    }
+
+    /**
      * 清除session和cookie
      * @author HuangSen
      * Time 2019/10/10 15:58

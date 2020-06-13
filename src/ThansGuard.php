@@ -8,6 +8,7 @@
 namespace hsen\auth;
 
 
+use hsen\auth\Contracts\AuthIdCard;
 use hsen\auth\Contracts\Guard;
 use hsen\auth\Contracts\UserProvider;
 use thans\jwt\exception\JWTException;
@@ -27,6 +28,13 @@ use think\Exception;
 class ThansGuard implements Guard
 {
     use GuardHelpers;
+
+    /**
+     * 驱动名称
+     * @var string
+     */
+    protected $name;
+
     /**
      * jwt实例
      * @var JwtAuth
@@ -35,8 +43,9 @@ class ThansGuard implements Guard
 
     protected $userinfo;
 
-    public function __construct(JWTAuth $jwt, UserProvider $usermodel)
+    public function __construct($name, JWTAuth $jwt, UserProvider $usermodel)
     {
+        $this->name = $name;
         $this->jwt = $jwt;
         $this->provider = $usermodel;
     }
@@ -80,8 +89,9 @@ class ThansGuard implements Guard
      * @author  Administrator
      * DateTime: 2020/4/8 16:21
      */
-    public function userId($id){
-        if (isset($id)){
+    public function userId($id)
+    {
+        if (isset($id)) {
             return $this->user = $this->provider->getUserById($id);
         }
         return false;
@@ -99,13 +109,13 @@ class ThansGuard implements Guard
     public function userOrFail()
     {
         if (!$user = $this->user()) {
-            throw new Exception('用户未定义！');
+            throw new Exception('用户未登录！');
         }
         return $user;
     }
 
     /**
-     * 通过给定用户id来登陆系统
+     * 通过给定用户id来登录系统
      * @param $id
      * @return mixed
      * @author HuangSen
@@ -117,7 +127,50 @@ class ThansGuard implements Guard
     }
 
     /**
+     * @title  方法说明
+     * @desc   方法描述
+     * @param AuthIdCard $user
+     * @param bool $remember
+     * @author 27479
+     * DateTime: 2020/6/13 22:56
+     */
+    public function login(AuthIdCard $user){
+        return $this->jwt->builder(['uid' => $user->getAuthId()]);
+    }
+
+    /**
+     * @title  退出登录
+     * @desc   方法描述
+     * @throws TokenBlacklistException
+     * @author 27479
+     * DateTime: 2020/6/14 0:12
+     */
+    public function logout()
+    {
+        $this->jwt->invalidate($this->jwt->getToken());
+    }
+    /**
+     * 登录到当前应用
+     * @param AuthIdCard $user
+     * @return mixed
+     * @author HuangSen
+     * Time 2019/10/8 13:33
+     */
+    public function loginByCache(AuthIdCard $user)
+    {
+        //更新登录缓存
+        $this->updateUserCache($this->getName() . $user->getAuthId());
+
+        $this->setUser($user);
+    }
+
+    /**
      * 读取token payload
+     * 其中做了很多的判断，首先判断token是否存在
+     * 然后判断token是否是正确的能被解析，
+     * 接下来是判断token的签名是否正确
+     * 在接下来判断token是否已经在黑名单里面
+     * 在判断token是否已经过期了
      * @return array|bool
      * @throws JWTException
      * @throws TokenBlacklistException
@@ -137,6 +190,7 @@ class ThansGuard implements Guard
 
     /**
      * 刷新token
+     * 判断token的刷新时间是否过了，能否在被继续刷新
      * @return mixed
      * @throws JWTException
      * @throws Exception
@@ -164,6 +218,28 @@ class ThansGuard implements Guard
         return $this->jwt->builder($array);
     }
 
+    /**
+     * 获取唯一的用户姓名存储存储名字
+     * @return string
+     * @author HuangSen
+     * Time 2019/10/8 14:29
+     */
+    public function getName(): string
+    {
+        return 'login_' . $this->name . '_' . sha1(static::class);
+    }
+
+    /**
+     * @title  获取当前应用的名称
+     * @desc   方法描述
+     * @return string
+     * @author 27479
+     * DateTime: 2020/6/13 23:41
+     */
+    public function getGuardName()
+    {
+        return $this->name;
+    }
     /**
      * 动态的调用jwt的方法
      * @param $method

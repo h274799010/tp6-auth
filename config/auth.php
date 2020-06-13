@@ -36,5 +36,7 @@ return [
         //     'driver' => 'database',
         //     'table' => 'users',
         // ],
-    ]
+    ],
+    //是否开启了密码验证或者是开启了验证码验证 默认是关闭的
+    'verify' => true
 ];
