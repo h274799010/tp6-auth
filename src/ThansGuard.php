@@ -199,11 +199,7 @@ class ThansGuard implements Guard
      */
     public function refresh()
     {
-        try {
-            return $this->jwt->refresh();
-        } catch (TokenExpiredException $exception) {
-            throw new Exception(['msg' => 'Token已经过期了:' . $exception->getMessage(), 'code' => 10000]);
-        }
+        return $this->jwt->refresh();
     }
 
     /**
